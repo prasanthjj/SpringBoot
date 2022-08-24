@@ -1,0 +1,5 @@
+FROM openjdk:11
+WORKDIR $APP_HOME
+COPY  target/DemoApplication-0.0.1-SNAPSHOT.jar DemoApplication-0.0.1-SNAPSHOT.jar
+EXPOSE 7777
+ENTRYPOINT ["java","-jar","DemoApplication-0.0.1-SNAPSHOT.jar"]

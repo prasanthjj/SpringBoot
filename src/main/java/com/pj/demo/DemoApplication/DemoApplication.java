@@ -1,4 +1,4 @@
-package com.pj.demo;
+package com.pj.demo.DemoApplication;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
