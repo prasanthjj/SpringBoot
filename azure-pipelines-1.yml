@@ -14,7 +14,7 @@ variables:
   dockerRegistryServiceConnection: '5b45ddac-7a62-4b0d-8fea-3214cd8f0196'
   imageRepository: 'sbdemo'
   containerRegistry: 'dhlpocregistry.azurecr.io'
-  dockerfilePath: '**/Dockerfile'
+  dockerfilePath: 'Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'dhlpocregistry617566d0-auth'
 
