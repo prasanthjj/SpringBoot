@@ -17,6 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Optional;
 
 @ComponentScan({"com.pj.demo.data"})
@@ -41,6 +48,28 @@ public class DemoApplication {
 		return String.format("Hello %s!", name);
 	}
 
+	@GetMapping("/{call}")
+	public ResponseEntity<String> callRest() throws IOException {
+
+		URL url = new URL("");
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		conn.setRequestProperty("accept", "application/json");
+		InputStream responseStream = conn.getInputStream();
+		if (conn.getResponseCode() != 200) {
+			throw new RuntimeException("Failed : HTTP error code : "
+					+ conn.getResponseCode());
+		}
+		BufferedReader br = new BufferedReader(new InputStreamReader(
+				(conn.getInputStream())));
+		String output="NO DATA";
+
+		while ((output = br.readLine()) != null) {
+			System.out.println(output);
+		}
+
+
+		return ResponseEntity.ok(output);
+	}
 
 	public void run(String... var1) {
 		this.repository.deleteAll().block();
