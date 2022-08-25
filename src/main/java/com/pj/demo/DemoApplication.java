@@ -38,10 +38,10 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-		@GetMapping("/{name}")
-		public ResponseEntity<String> askQuestion(@PathVariable(value = "name") String name) {
-			return ResponseEntity.ok("Hey " + name + ", How are you?");
-		}
+	@GetMapping("/{name}")
+	public ResponseEntity<String> askQuestion(@PathVariable(value = "name") String name) {
+		return ResponseEntity.ok("Hey " + name + ", How are you?");
+	}
 
 	@GetMapping("/hello")
 	public String sayHello(@RequestParam(value = "name", defaultValue = "World") String name) {
