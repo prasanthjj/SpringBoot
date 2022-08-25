@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: sbdemo 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sbdemo
+  template:
+    metadata:
+      labels:
+        app: sbdemo 
+    spec:
+      containers:
+        - name: sbdemo 
+          image: dhlpocregistry.azurecr.io/sbdemo
+          ports:
+          - containerPort: 8080
