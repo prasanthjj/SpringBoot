@@ -70,7 +70,7 @@ public class DemoApplication {
 
 		return ResponseEntity.ok(output);
 	}
-
+/*
 	public void run(String... var1) {
 		this.repository.deleteAll().block();
 		LOGGER.info("Deleted all data in container.");
@@ -102,6 +102,6 @@ public class DemoApplication {
 		Assert.state(result.getLastName().equals(testUser.getLastName()), "query result lastName doesn't match!");
 
 		LOGGER.info("findOne in User collection get result: {}", result.toString());
-	}
+	}*/
 }
 
